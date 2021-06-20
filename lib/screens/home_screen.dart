@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shopping_cart/utils/constants.dart';
 import 'package:shopping_cart/widgets/header.dart';
+import 'package:shopping_cart/widgets/item_list.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -15,6 +16,7 @@ class HomeScreen extends StatelessWidget {
           child: Column(
             children: [
               Header(isHomeScreen: true),
+              ItemList(),
             ],
           ),
         ),
