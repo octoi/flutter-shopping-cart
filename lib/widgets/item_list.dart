@@ -15,7 +15,7 @@ class _ItemListState extends State<ItemList> {
     var res = await fetchData();
     List<Widget> _widgets = [];
     res.forEach((data) {
-      _widgets.add(Text(data["title"]));
+      _widgets.add(ItemCard(data: data));
     });
     setState(() {
       _items = _widgets;
@@ -32,6 +32,32 @@ class _ItemListState extends State<ItemList> {
   Widget build(BuildContext context) {
     return Column(
       children: _items,
+    );
+  }
+}
+
+class ItemCard extends StatelessWidget {
+  final data;
+
+  const ItemCard({Key? key, required this.data}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    String title = data['title'];
+    String price = data['price'].toString();
+    String image = data['image'];
+
+    return Container(
+      padding: EdgeInsets.all(10.0),
+      margin: EdgeInsets.symmetric(vertical: 10.0),
+      width: double.infinity,
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(20.0),
+      ),
+      child: Row(
+        children: [Container()],
+      ),
     );
   }
 }
