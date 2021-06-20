@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shopping_cart/utils/constants.dart';
+import 'package:shopping_cart/widgets/header.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -10,9 +11,11 @@ class HomeScreen extends StatelessWidget {
       backgroundColor: appPrimaryColor,
       body: SafeArea(
         child: SingleChildScrollView(
-          padding: EdgeInsets.all(15.0),
+          padding: EdgeInsets.all(20.0),
           child: Column(
-            children: [],
+            children: [
+              Header(isHomeScreen: true),
+            ],
           ),
         ),
       ),
