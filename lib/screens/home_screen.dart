@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shopping_cart/screens/cart_screen.dart';
 import 'package:shopping_cart/utils/constants.dart';
 import 'package:shopping_cart/widgets/header.dart';
 
@@ -19,7 +20,7 @@ class HomeScreen extends StatelessWidget {
               Header(
                 title: "All Items",
                 icon: Icons.shopping_cart_outlined,
-                location: HomeScreen(),
+                isHomeScreen: true,
               )
             ],
           ),
