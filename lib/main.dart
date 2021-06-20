@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shopping_cart/screens/home_screen.dart';
 
 void main() {
   runApp(ShoppingCart());
@@ -9,7 +10,26 @@ class ShoppingCart extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Scaffold(),
+      home: TestScreen(),
+    );
+  }
+}
+
+class TestScreen extends StatelessWidget {
+  const TestScreen({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+        child: TextButton(
+          child: Text("Click To Navigate"),
+          onPressed: () => Navigator.push(
+            context,
+            MaterialPageRoute(builder: (ctx) => HomeScreen()),
+          ),
+        ),
+      ),
     );
   }
 }
