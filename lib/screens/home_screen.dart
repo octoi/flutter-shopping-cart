@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shopping_cart/utils/constants.dart';
+import 'package:shopping_cart/widgets/header.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -15,13 +16,11 @@ class HomeScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                "All Items",
-                style: TextStyle(
-                  fontSize: 20.0,
-                  letterSpacing: 0.3,
-                ),
-              ),
+              Header(
+                title: "All Items",
+                icon: Icons.shopping_cart_outlined,
+                location: HomeScreen(),
+              )
             ],
           ),
         ),
