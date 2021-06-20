@@ -16,13 +16,11 @@ class HomeScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "Shopping Cart",
-                style: TextStyle(fontSize: 30.0, color: appAccentColor),
-              ),
-              SizedBox(height: 10.0),
-              Text(
-                "Buy what you want",
-                style: TextStyle(fontSize: 15.0, color: appAccentColor),
+                "All Items",
+                style: TextStyle(
+                  fontSize: 20.0,
+                  letterSpacing: 0.3,
+                ),
               ),
             ],
           ),
