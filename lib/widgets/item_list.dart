@@ -49,18 +49,25 @@ class ItemCard extends StatelessWidget {
     String image = data['image'];
 
     return Container(
-      padding: EdgeInsets.all(10.0),
+      padding: EdgeInsets.all(20.0),
       margin: EdgeInsets.symmetric(vertical: 10.0),
       width: double.infinity,
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(20.0),
       ),
-      child: Row(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Container(
             padding: EdgeInsets.all(10.0),
-            child: Image.network(image, width: 100.0),
+            child: Image.network(image, width: 200.0),
+          ),
+          SizedBox(height: 10.0),
+          Text(
+            title,
+            style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.w600),
+            overflow: TextOverflow.ellipsis,
           ),
         ],
       ),
