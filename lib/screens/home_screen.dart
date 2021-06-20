@@ -12,11 +12,13 @@ class HomeScreen extends StatelessWidget {
       backgroundColor: appPrimaryColor,
       body: SafeArea(
         child: SingleChildScrollView(
+          physics: BouncingScrollPhysics(),
           padding: EdgeInsets.all(20.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Header(isHomeScreen: true),
+              SizedBox(height: 20.0),
               ItemList(),
             ],
           ),
