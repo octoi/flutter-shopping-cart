@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:shopping_cart/screens/cart_screen.dart';
 
 class Header extends StatelessWidget {
   final String title;
   final IconData icon;
-  final Widget location;
+  final bool isHomeScreen;
 
   const Header({
     Key? key,
     required this.title,
     required this.icon,
-    required this.location,
+    this.isHomeScreen = false,
   }) : super(key: key);
 
   @override
@@ -25,10 +26,14 @@ class Header extends StatelessWidget {
           ),
         ),
         IconButton(
-          onPressed: () => Navigator.pushReplacement(
-            context,
-            MaterialPageRoute(builder: (ctx) => location),
-          ),
+          onPressed: () {
+            isHomeScreen
+                ? Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (ctx) => CartScreen()),
+                  )
+                : Navigator.pop(context);
+          },
           icon: Icon(icon),
         )
       ],
