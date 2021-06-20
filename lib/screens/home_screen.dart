@@ -14,6 +14,7 @@ class HomeScreen extends StatelessWidget {
         child: SingleChildScrollView(
           padding: EdgeInsets.all(20.0),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Header(isHomeScreen: true),
               ItemList(),
