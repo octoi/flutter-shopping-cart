@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shopping_cart/api/api.dart';
+import 'package:shopping_cart/utils/constants.dart';
 
 class ItemList extends StatefulWidget {
   const ItemList({Key? key}) : super(key: key);
@@ -56,7 +57,12 @@ class ItemCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(20.0),
       ),
       child: Row(
-        children: [Container()],
+        children: [
+          Container(
+            padding: EdgeInsets.all(10.0),
+            child: Image.network(image, width: 100.0),
+          ),
+        ],
       ),
     );
   }
