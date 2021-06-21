@@ -44,6 +44,11 @@ class DetailScreen extends StatelessWidget {
               '\$$price',
               style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.w600),
             ),
+            SizedBox(height: 20.0),
+            Text(
+              description,
+              style: TextStyle(fontSize: 16.0),
+            )
           ],
         ),
       ),
