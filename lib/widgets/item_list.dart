@@ -45,7 +45,16 @@ class _ItemListState extends State<ItemList> {
       children: [
         SearchBar(
           onChange: (String searchQuery) {
-            print(searchQuery);
+            searchQuery = searchQuery.toLowerCase();
+            if (searchQuery == '') {
+              displayData(_data);
+            } else {
+              List filteredData = _data.where((item) {
+                String title = item['title'].toLowerCase();
+                return title.contains(searchQuery);
+              }).toList();
+              displayData(filteredData);
+            }
           },
         ),
         SizedBox(height: 20.0),
