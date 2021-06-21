@@ -62,9 +62,23 @@ class DetailScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-                Text(
-                  category,
-                  style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.w600),
+                Container(
+                  padding: EdgeInsets.symmetric(
+                    vertical: 10.0,
+                    horizontal: 20.0,
+                  ),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10.0),
+                    border: Border.all(color: appAccentColor),
+                  ),
+                  child: Text(
+                    category,
+                    style: TextStyle(
+                      fontSize: 16.0,
+                      fontWeight: FontWeight.w600,
+                      color: appAccentColor,
+                    ),
+                  ),
                 ),
               ],
             ),
