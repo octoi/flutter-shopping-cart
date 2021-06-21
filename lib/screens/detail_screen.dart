@@ -44,9 +44,23 @@ class DetailScreen extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(
-                  '\$$price',
-                  style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.w600),
+                Container(
+                  padding: EdgeInsets.symmetric(
+                    vertical: 10.0,
+                    horizontal: 15.0,
+                  ),
+                  decoration: BoxDecoration(
+                    color: appAccentColor,
+                    borderRadius: BorderRadius.circular(10.0),
+                  ),
+                  child: Text(
+                    '\$$price',
+                    style: TextStyle(
+                      fontSize: 16.0,
+                      color: Colors.white,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
                 ),
                 Text(
                   category,
