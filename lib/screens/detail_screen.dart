@@ -30,6 +30,20 @@ class DetailScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Image.network(image),
+            SizedBox(height: 40.0),
+            Text(
+              title,
+              style: TextStyle(
+                color: appAccentColor,
+                fontSize: 20.0,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+            SizedBox(height: 20.0),
+            Text(
+              '\$$price',
+              style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.w600),
+            ),
           ],
         ),
       ),
