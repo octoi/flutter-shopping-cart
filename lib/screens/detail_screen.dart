@@ -86,6 +86,27 @@ class DetailScreen extends StatelessWidget {
             Text(
               description,
               style: TextStyle(fontSize: 16.0),
+            ),
+            SizedBox(height: 30.0),
+            InkWell(
+              onTap: () {},
+              child: Container(
+                width: double.infinity,
+                height: 50.0,
+                decoration: BoxDecoration(
+                  color: appAccentColor,
+                  borderRadius: BorderRadius.circular(10.0),
+                ),
+                child: Center(
+                  child: Text(
+                    "Add To Cart",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 16.0,
+                    ),
+                  ),
+                ),
+              ),
             )
           ],
         ),
