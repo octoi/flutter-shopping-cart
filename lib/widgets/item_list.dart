@@ -36,6 +36,7 @@ class _ItemListState extends State<ItemList> {
     return Column(
       children: [
         SearchBar(),
+        SizedBox(height: 20.0),
         ..._items,
       ],
     );
