@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shopping_cart/api/api.dart';
+import 'package:shopping_cart/screens/detail_screen.dart';
 import 'package:shopping_cart/utils/constants.dart';
 
 class ItemList extends StatefulWidget {
@@ -82,7 +83,14 @@ class ItemCard extends StatelessWidget {
                 ),
                 SizedBox(height: 10.0),
                 TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (ctx) => DetailScreen(data: data),
+                      ),
+                    );
+                  },
                   child: Text(
                     "View Detail",
                     style: TextStyle(color: Colors.white),
