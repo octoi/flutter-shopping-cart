@@ -8,6 +8,11 @@ class DetailScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    String title = data['title'];
+    String price = data['price'].toString();
+    String image = data['image'];
+    String description = data['description'];
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: appPrimaryColor,
@@ -16,6 +21,16 @@ class DetailScreen extends StatelessWidget {
           onPressed: () => Navigator.pop(context),
           icon: Icon(Icons.arrow_back_ios),
           color: appAccentColor,
+        ),
+      ),
+      body: SingleChildScrollView(
+        physics: BouncingScrollPhysics(),
+        padding: EdgeInsets.all(20.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Image.network(image),
+          ],
         ),
       ),
     );
