@@ -1,7 +1,13 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'package:shopping_cart/utils/constants.dart';
 
 class SearchBar extends StatelessWidget {
+  final onChange;
+
+  const SearchBar({Key? key, this.onChange}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return TextField(
@@ -19,6 +25,7 @@ class SearchBar extends StatelessWidget {
         filled: true,
         hintText: 'Search for products',
       ),
+      onChanged: onChange,
     );
   }
 }
