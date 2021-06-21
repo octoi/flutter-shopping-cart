@@ -35,7 +35,11 @@ class _ItemListState extends State<ItemList> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        SearchBar(),
+        SearchBar(
+          onChange: (String searchQuery) {
+            print(searchQuery);
+          },
+        ),
         SizedBox(height: 20.0),
         ..._items,
       ],
