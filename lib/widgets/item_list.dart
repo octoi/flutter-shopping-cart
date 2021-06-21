@@ -13,15 +13,23 @@ class ItemList extends StatefulWidget {
 
 class _ItemListState extends State<ItemList> {
   List<Widget> _items = [];
+  List _data = [];
 
-  void getData() async {
-    var res = await fetchData();
+  void displayData(List data) {
     List<Widget> _widgets = [];
-    res.forEach((data) {
+    data.forEach((data) {
       _widgets.add(ItemCard(data: data));
     });
     setState(() {
       _items = _widgets;
+    });
+  }
+
+  void getData() async {
+    var res = await fetchData();
+    displayData(res);
+    setState(() {
+      _data = res;
     });
   }
 
