@@ -12,6 +12,7 @@ class DetailScreen extends StatelessWidget {
     String price = data['price'].toString();
     String image = data['image'];
     String description = data['description'];
+    String category = data['category'];
 
     return Scaffold(
       appBar: AppBar(
@@ -39,12 +40,21 @@ class DetailScreen extends StatelessWidget {
                 fontWeight: FontWeight.w600,
               ),
             ),
-            SizedBox(height: 20.0),
-            Text(
-              '\$$price',
-              style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.w600),
+            SizedBox(height: 30.0),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  '\$$price',
+                  style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.w600),
+                ),
+                Text(
+                  category,
+                  style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.w600),
+                ),
+              ],
             ),
-            SizedBox(height: 20.0),
+            SizedBox(height: 30.0),
             Text(
               description,
               style: TextStyle(fontSize: 16.0),
