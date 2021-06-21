@@ -84,7 +84,7 @@ class ItemCard extends StatelessWidget {
                 TextButton(
                   onPressed: () {},
                   child: Text(
-                    "Add To Cart",
+                    "View Detail",
                     style: TextStyle(color: Colors.white),
                   ),
                   style: ButtonStyle(
