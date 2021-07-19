@@ -63,7 +63,7 @@ class ItemCard extends StatelessWidget {
               SizedBox(height: 10.0),
               Container(
                 width: double.infinity,
-                height: MediaQuery.of(context).size.width <= 500 ? 30.0 : 40.0,
+                height: 40.0,
                 child: TextButton(
                   onPressed: () {
                     Navigator.push(
