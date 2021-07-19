@@ -52,7 +52,11 @@ class _ItemListState extends State<ItemList> {
               List filteredData = _data.where((item) {
                 String title = item['title'].toLowerCase();
                 String category = item['category'].toLowerCase();
-                return title.contains(searchQuery) || category == searchQuery;
+                String price = item['price'].toString();
+
+                return title.contains(searchQuery) ||
+                    category.contains(searchQuery) ||
+                    price.contains(searchQuery);
               }).toList();
               displayData(filteredData);
             }
