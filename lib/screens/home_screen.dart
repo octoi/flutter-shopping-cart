@@ -12,7 +12,6 @@ class HomeScreen extends StatelessWidget {
       backgroundColor: appPrimaryColor,
       body: SafeArea(
         child: SingleChildScrollView(
-          physics: BouncingScrollPhysics(),
           padding: EdgeInsets.all(20.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
