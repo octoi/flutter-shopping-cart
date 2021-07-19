@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'package:shopping_cart/utils/constants.dart';
 
@@ -10,20 +12,33 @@ class Tags extends StatefulWidget {
 }
 
 class _TagsState extends State<Tags> {
+  String selected = 'All';
+
   List<Widget> getCategories() {
     List<Widget> widgets = [];
     var categories = new Map();
 
     widgets.add(TagButton(
       category: 'All',
-      isSelected: true,
+      isSelected: selected == 'All',
+      onSelect: () {
+        setState(() => selected = 'All');
+      },
     ));
 
     widget.data.forEach((item) {
       String category = item['category'];
       if (categories[category] == null) {
         categories[category] = category;
-        widgets.add(TagButton(category: category));
+        widgets.add(
+          TagButton(
+            category: category,
+            isSelected: selected == category,
+            onSelect: () {
+              setState(() => selected = category);
+            },
+          ),
+        );
       }
     });
 
@@ -45,17 +60,19 @@ class _TagsState extends State<Tags> {
 class TagButton extends StatelessWidget {
   final String category;
   final bool isSelected;
+  final Function onSelect;
 
   const TagButton({
     Key? key,
     required this.category,
-    this.isSelected = false,
+    required this.isSelected,
+    required this.onSelect,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {},
+      onTap: () => onSelect(),
       child: Container(
         padding: EdgeInsets.symmetric(
           vertical: 10.0,
