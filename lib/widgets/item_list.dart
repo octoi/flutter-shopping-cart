@@ -56,6 +56,7 @@ class _ItemListState extends State<ItemList> {
               displayData(filteredData);
             }
           },
+          data: _data,
         ),
         SizedBox(height: 20.0),
         ..._items,
