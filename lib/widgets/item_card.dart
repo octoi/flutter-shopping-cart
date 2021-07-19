@@ -18,6 +18,7 @@ class ItemCard extends StatelessWidget {
       padding: EdgeInsets.all(20.0),
       margin: EdgeInsets.symmetric(vertical: 10.0),
       width: double.infinity,
+      height: MediaQuery.of(context).size.height,
       decoration: BoxDecoration(
         color: appPrimaryColor,
         borderRadius: BorderRadius.circular(20.0),
@@ -30,71 +31,64 @@ class ItemCard extends StatelessWidget {
           ),
         ],
       ),
-      child: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Container(
-              child: Hero(
-                tag: '$id-image',
-                child: Image.network(
-                  image,
-                  height: 150.0,
-                ),
-              ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Expanded(
+            child: Hero(
+              tag: '$id-image',
+              child: Image.network(image),
             ),
-            SizedBox(height: 10.0),
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    title,
-                    style:
-                        TextStyle(fontSize: 20.0, fontWeight: FontWeight.w600),
-                    overflow: TextOverflow.ellipsis,
-                  ),
-                  SizedBox(height: 10.0),
-                  Text(
-                    '\$$price',
-                    style: TextStyle(fontSize: 15.0),
-                    overflow: TextOverflow.ellipsis,
-                  ),
-                  SizedBox(height: 10.0),
-                  Container(
-                    width: double.infinity,
-                    child: TextButton(
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (ctx) => DetailScreen(data: data),
-                          ),
-                        );
-                      },
-                      child: Text(
-                        "View Detail",
-                        style: TextStyle(color: Colors.white),
+          ),
+          SizedBox(height: 20.0),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              Text(
+                title,
+                style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.w600),
+                overflow: TextOverflow.ellipsis,
+              ),
+              SizedBox(height: 10.0),
+              Text(
+                '\$$price',
+                style: TextStyle(fontSize: 15.0),
+                overflow: TextOverflow.ellipsis,
+              ),
+              SizedBox(height: 10.0),
+              Container(
+                width: double.infinity,
+                child: TextButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (ctx) => DetailScreen(data: data),
                       ),
-                      style: ButtonStyle(
-                        backgroundColor: MaterialStateColor.resolveWith(
-                          (states) => appAccentColor,
-                        ),
-                        padding: MaterialStateProperty.resolveWith(
-                          (states) => EdgeInsets.all(10.0),
-                        ),
-                        overlayColor: MaterialStateColor.resolveWith(
-                          (states) => Color(0xFF262341),
-                        ),
-                      ),
+                    );
+                  },
+                  child: Text(
+                    "View Detail",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateColor.resolveWith(
+                      (states) => appAccentColor,
                     ),
-                  )
-                ],
-              ),
-            ),
-          ],
-        ),
+                    padding: MaterialStateProperty.resolveWith(
+                      (states) => EdgeInsets.all(10.0),
+                    ),
+                    overlayColor: MaterialStateColor.resolveWith(
+                      (states) => Color(0xFF262341),
+                    ),
+                  ),
+                ),
+              )
+            ],
+          ),
+        ],
       ),
     );
   }
