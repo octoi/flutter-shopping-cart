@@ -70,7 +70,7 @@ class _ItemListState extends State<ItemList> {
           crossAxisCount: 2,
           physics: ScrollPhysics(),
           childAspectRatio: (MediaQuery.of(context).size.width / 2) / 370.0,
-          children: _data.map((item) => ItemCard(data: item)).toList(),
+          children: _items,
         ),
       ],
     );
