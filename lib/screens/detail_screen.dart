@@ -17,6 +17,7 @@ class DetailScreen extends StatelessWidget {
     String category = data['category'];
 
     return Scaffold(
+      backgroundColor: appPrimaryColor,
       body: SingleChildScrollView(
         physics: BouncingScrollPhysics(),
         padding: EdgeInsets.all(20.0),
