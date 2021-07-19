@@ -54,12 +54,16 @@ class ItemCard extends StatelessWidget {
               SizedBox(height: 10.0),
               Text(
                 '\$$price',
-                style: TextStyle(fontSize: 15.0),
+                style: TextStyle(
+                  fontSize:
+                      MediaQuery.of(context).size.width <= 500 ? 15.0 : 18.0,
+                ),
                 overflow: TextOverflow.ellipsis,
               ),
               SizedBox(height: 10.0),
               Container(
                 width: double.infinity,
+                height: MediaQuery.of(context).size.width <= 500 ? 30.0 : 40.0,
                 child: TextButton(
                   onPressed: () {
                     Navigator.push(
@@ -70,7 +74,7 @@ class ItemCard extends StatelessWidget {
                     );
                   },
                   child: Text(
-                    "View Detail",
+                    "View Details",
                     style: TextStyle(color: Colors.white),
                   ),
                   style: ButtonStyle(
