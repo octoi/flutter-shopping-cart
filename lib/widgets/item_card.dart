@@ -19,8 +19,16 @@ class ItemCard extends StatelessWidget {
       margin: EdgeInsets.symmetric(vertical: 10.0),
       width: double.infinity,
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: appPrimaryColor,
         borderRadius: BorderRadius.circular(20.0),
+        boxShadow: [
+          BoxShadow(
+            color: appSecondaryColor,
+            spreadRadius: 1,
+            blurRadius: 15,
+            offset: Offset(0, 2),
+          ),
+        ],
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
