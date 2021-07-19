@@ -64,7 +64,19 @@ class _ItemListState extends State<ItemList> {
           data: _data,
         ),
         SizedBox(height: 20.0),
-        ..._items,
+        // ..._items,
+        GridView.count(
+          shrinkWrap: true,
+          crossAxisCount: 2,
+          physics: ScrollPhysics(),
+          childAspectRatio: (MediaQuery.of(context).size.width / 2) / 250.0,
+          children: List.generate(10, (index) {
+            return Container(
+              margin: EdgeInsets.all(10.0),
+              color: Colors.red,
+            );
+          }),
+        ),
       ],
     );
   }
