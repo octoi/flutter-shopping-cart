@@ -8,6 +8,7 @@ class DetailScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    String id = data['id'].toString();
     String title = data['title'];
     String price = data['price'].toString();
     String image = data['image'];
@@ -30,7 +31,10 @@ class DetailScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Image.network(image),
+            Hero(
+              tag: '$id-image',
+              child: Image.network(image),
+            ),
             SizedBox(height: 40.0),
             Text(
               title,
