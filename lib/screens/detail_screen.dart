@@ -25,9 +25,14 @@ class DetailScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SafeArea(child: Header()),
-            Hero(
-              tag: '$id-image',
-              child: Image.network(image),
+            SizedBox(height: 20.0),
+            Center(
+              child: Hero(
+                tag: '$id-image',
+                child: MediaQuery.of(context).size.width <= 500
+                    ? Image.network(image)
+                    : Image.network(image, width: 500.0),
+              ),
             ),
             SizedBox(height: 40.0),
             Text(
