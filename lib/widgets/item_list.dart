@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:shimmer/shimmer.dart';
 import 'package:shopping_cart/api/api.dart';
+import 'package:shopping_cart/utils/constants.dart';
 import 'package:shopping_cart/widgets/search_bar.dart';
 
 import 'item_card.dart';
@@ -14,6 +16,7 @@ class ItemList extends StatefulWidget {
 class _ItemListState extends State<ItemList> {
   List<Widget> _items = [];
   List _data = [];
+  bool loading = false;
 
   void displayData(List data) {
     List<Widget> _widgets = [];
@@ -30,12 +33,14 @@ class _ItemListState extends State<ItemList> {
     displayData(res);
     setState(() {
       _data = res;
+      loading = false;
     });
   }
 
   @override
   void initState() {
     super.initState();
+    setState(() => loading = true);
     getData();
   }
 
@@ -68,10 +73,34 @@ class _ItemListState extends State<ItemList> {
           shrinkWrap: true,
           crossAxisCount: 2,
           physics: ScrollPhysics(),
-          // childAspectRatio: (MediaQuery.of(context).size.width / 2) / 370.0,
           childAspectRatio: (MediaQuery.of(context).size.width / 2) /
               (MediaQuery.of(context).size.height / 2),
-          children: _items,
+          children: !loading
+              ? _items
+              : List.generate(
+                  10,
+                  (_) => Shimmer.fromColors(
+                    baseColor: appSecondaryColor,
+                    highlightColor: appPrimaryColor,
+                    child: Container(
+                      margin: EdgeInsets.all(10.0),
+                      width: double.infinity,
+                      height: MediaQuery.of(context).size.height,
+                      decoration: BoxDecoration(
+                        color: appSecondaryColor,
+                        borderRadius: BorderRadius.circular(20.0),
+                        boxShadow: [
+                          BoxShadow(
+                            color: appSecondaryColor,
+                            spreadRadius: 1,
+                            blurRadius: 15,
+                            offset: Offset(0, 2),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
         ),
       ],
     );
