@@ -30,18 +30,20 @@ class ItemCard extends StatelessWidget {
           ),
         ],
       ),
-      child: Row(
+      child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Container(
-            padding: EdgeInsets.all(10.0),
             child: Hero(
               tag: '$id-image',
-              child: Image.network(image, width: 100.0),
+              child: Image.network(
+                image,
+                height: 150.0,
+              ),
             ),
           ),
-          SizedBox(width: 10.0),
+          SizedBox(height: 10.0),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -58,28 +60,31 @@ class ItemCard extends StatelessWidget {
                   overflow: TextOverflow.ellipsis,
                 ),
                 SizedBox(height: 10.0),
-                TextButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (ctx) => DetailScreen(data: data),
+                Container(
+                  width: double.infinity,
+                  child: TextButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (ctx) => DetailScreen(data: data),
+                        ),
+                      );
+                    },
+                    child: Text(
+                      "View Detail",
+                      style: TextStyle(color: Colors.white),
+                    ),
+                    style: ButtonStyle(
+                      backgroundColor: MaterialStateColor.resolveWith(
+                        (states) => appAccentColor,
                       ),
-                    );
-                  },
-                  child: Text(
-                    "View Detail",
-                    style: TextStyle(color: Colors.white),
-                  ),
-                  style: ButtonStyle(
-                    backgroundColor: MaterialStateColor.resolveWith(
-                      (states) => appAccentColor,
-                    ),
-                    padding: MaterialStateProperty.resolveWith(
-                      (states) => EdgeInsets.all(10.0),
-                    ),
-                    overlayColor: MaterialStateColor.resolveWith(
-                      (states) => Color(0xFF262341),
+                      padding: MaterialStateProperty.resolveWith(
+                        (states) => EdgeInsets.all(10.0),
+                      ),
+                      overlayColor: MaterialStateColor.resolveWith(
+                        (states) => Color(0xFF262341),
+                      ),
                     ),
                   ),
                 )
