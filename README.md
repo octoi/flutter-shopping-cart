@@ -1,6 +1,6 @@
 # Shopping List App 🛒
 An <del>Awesome</del> Shopping List App UI
-> App uses an api <a href="https://fakestoreapi.com/products/">endpoint</a> from <a href="https://fakestoreapi.com/products/">Fakestoreapi</a>
+> App uses an api <a href="https://fakestoreapi.com/products/">endpoint</a> from <a href="https://fakestoreapi.com/">Fakestoreapi</a>
 ### Features 🌟
 - Search
 - View product details
