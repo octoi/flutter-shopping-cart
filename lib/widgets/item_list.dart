@@ -51,7 +51,8 @@ class _ItemListState extends State<ItemList> {
             } else {
               List filteredData = _data.where((item) {
                 String title = item['title'].toLowerCase();
-                return title.contains(searchQuery);
+                String category = item['category'].toLowerCase();
+                return title.contains(searchQuery) || category == searchQuery;
               }).toList();
               displayData(filteredData);
             }
