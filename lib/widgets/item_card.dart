@@ -9,6 +9,7 @@ class ItemCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    String id = data['id'].toString();
     String title = data['title'];
     String price = data['price'].toString();
     String image = data['image'];
@@ -27,7 +28,10 @@ class ItemCard extends StatelessWidget {
         children: [
           Container(
             padding: EdgeInsets.all(10.0),
-            child: Image.network(image, width: 100.0),
+            child: Hero(
+              tag: '$id-image',
+              child: Image.network(image, width: 100.0),
+            ),
           ),
           SizedBox(width: 10.0),
           Expanded(
