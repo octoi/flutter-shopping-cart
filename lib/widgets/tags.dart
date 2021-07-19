@@ -21,6 +21,8 @@ class _TagsState extends State<Tags> {
     List<Widget> widgets = [];
     var categories = new Map();
 
+    if (widget.data == []) return widgets;
+
     widgets.add(TagButton(
       category: 'All',
       isSelected: selected == 'All',
