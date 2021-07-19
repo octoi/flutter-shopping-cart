@@ -46,7 +46,7 @@ class SearchBar extends StatelessWidget {
         ),
       ),
       SizedBox(height: 20.0),
-      Tags(data: data),
+      Tags(data: data, search: onChange),
     ]);
   }
 }

@@ -5,7 +5,12 @@ import 'package:shopping_cart/utils/constants.dart';
 
 class Tags extends StatefulWidget {
   final data;
-  const Tags({Key? key, this.data}) : super(key: key);
+  final Function search;
+  const Tags({
+    Key? key,
+    this.data,
+    required this.search,
+  }) : super(key: key);
 
   @override
   _TagsState createState() => _TagsState();
@@ -23,6 +28,7 @@ class _TagsState extends State<Tags> {
       isSelected: selected == 'All',
       onSelect: () {
         setState(() => selected = 'All');
+        widget.search('');
       },
     ));
 
@@ -36,6 +42,7 @@ class _TagsState extends State<Tags> {
             isSelected: selected == category,
             onSelect: () {
               setState(() => selected = category);
+              widget.search(category);
             },
           ),
         );
