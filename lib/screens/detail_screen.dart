@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shopping_cart/utils/constants.dart';
+import 'package:shopping_cart/widgets/header.dart';
 
 class DetailScreen extends StatelessWidget {
   final data;
@@ -16,21 +17,13 @@ class DetailScreen extends StatelessWidget {
     String category = data['category'];
 
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: appPrimaryColor,
-        elevation: 0.0,
-        leading: IconButton(
-          onPressed: () => Navigator.pop(context),
-          icon: Icon(Icons.arrow_back_ios),
-          color: appAccentColor,
-        ),
-      ),
       body: SingleChildScrollView(
         physics: BouncingScrollPhysics(),
         padding: EdgeInsets.all(20.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            SafeArea(child: Header()),
             Hero(
               tag: '$id-image',
               child: Image.network(image),
