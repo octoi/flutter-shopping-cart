@@ -64,12 +64,13 @@ class _ItemListState extends State<ItemList> {
           data: _data,
         ),
         SizedBox(height: 20.0),
-        // ..._items,
         GridView.count(
           shrinkWrap: true,
           crossAxisCount: 2,
           physics: ScrollPhysics(),
-          childAspectRatio: (MediaQuery.of(context).size.width / 2) / 370.0,
+          // childAspectRatio: (MediaQuery.of(context).size.width / 2) / 370.0,
+          childAspectRatio: (MediaQuery.of(context).size.width / 2) /
+              (MediaQuery.of(context).size.height / 2),
           children: _items,
         ),
       ],
